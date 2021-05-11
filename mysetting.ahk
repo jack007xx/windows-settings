@@ -26,3 +26,17 @@ F13 & s::Send, #{Left}
 F13 & f::Send, #{Right}
 F13 & e::Send, #{Up}
 F13 & d::Send, #{Down}
+
+F13 & m::RunActivateMinimize("wt.exe", "WindowsTerminal.exe")
+
+RunActivateMinimize(exePass, exeName, exeOption="") {
+    Process, Exist, %exeName%
+    Sleep, 200
+    If (ErrorLevel != 0)
+        IfWinNotActive, ahk_pid %ErrorLevel%
+            WinMaximize, ahk_pid %ErrorLevel%
+        else
+            WinMinimize, ahk_pid %ErrorLevel%
+    else
+        Run, %exePass% %exeOption%
+}
