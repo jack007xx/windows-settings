@@ -1,10 +1,10 @@
-#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 #InstallKeybdHook
 ; #UseHook
 
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 
 SetKeyDelay, -1
 
@@ -34,9 +34,9 @@ RunActivateMinimize(exePass, exeName, exeOption="") {
     Sleep, 200
     If (ErrorLevel != 0)
         IfWinNotActive, ahk_pid %ErrorLevel%
-            WinMaximize, ahk_pid %ErrorLevel%
-        else
-            WinMinimize, ahk_pid %ErrorLevel%
+        WinActivate, ahk_pid %ErrorLevel%
+    else
+        WinMinimize, ahk_pid %ErrorLevel%
     else
         Run, %exePass% %exeOption%
 }
