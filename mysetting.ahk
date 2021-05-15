@@ -28,6 +28,8 @@ F13 & e::Send, #{Up}
 F13 & d::Send, #{Down}
 
 F13 & m::RunActivateMinimize("wt.exe", "WindowsTerminal.exe")
+F13 & c::RunActivateMinimize("C:\Program Files\Google\Chrome\Application\chrome.exe", "chrome.exe")
+F13 & v::RunActivateMinimize("C:\Program Files\Microsoft VS Code\Code.exe", "Code.exe")
 
 RunActivateMinimize(exePass, exeName, exeOption="") {
     Process, Exist, %exeName%
