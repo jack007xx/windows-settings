@@ -20,7 +20,15 @@ F13 & `;::Send, {BackSpace}
 F13 & p::Send, ^{BackSpace}
 
 F13 & `::Send, {vkF3sc029} ; 全角半角切り替え
-F13 & n::Send, {vkF3sc029} ; 全角半角切り替え
+; ここの改行は必須！！
+
+F13 & n::
+    Send {Alt Down}
+    Send {sc029 Down}
+    Send {sc029 Up}
+    Send {Alt Up}
+return
+; 全角半角切り替え
 
 F13 & s::Send, #{Left}
 F13 & f::Send, #{Right}
@@ -28,7 +36,7 @@ F13 & e::Send, #{Up}
 F13 & d::Send, #{Down}
 
 F13 & m::RunActivateMinimize("wt.exe", "WindowsTerminal.exe")
-F13 & c::RunActivateMinimize("C:\Program Files\Google\Chrome\Application\chrome.exe", "chrome.exe")
+F13 & c::RunActivateMinimize("C:\Program Files\Mozilla Firefox\firefox.exe", "firefox.exe")
 F13 & v::RunActivateMinimize("C:\Program Files\Microsoft VS Code\Code.exe", "Code.exe")
 
 RunActivateMinimize(exePass, exeName, exeOption="") {
